@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SMARTED – Run your entire school on one powerful system. Student management, attendance, fees, AI insights, and more." />
+  <meta name="keywords" content="school management system, ERP, attendance, fees, AI education, SMARTED" />
+  <meta property="og:title" content="SMARTED – Stop Managing. Start Running." />
+  <meta property="og:description" content="Run your entire school on one powerful system." />
+  <title>SMARTED – School Management Platform</title>
+  <link rel="icon" href="logo_smart_svg.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== BOOK DEMO MODAL ===== -->
+  <div class="modal-overlay" id="demoModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" aria-label="Close modal">
+        <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="modal-header">
+        <div class="modal-badge">🚀 Free Demo</div>
+        <h2 id="modalTitle">Book Your Free Demo</h2>
+        <p>See SMARTED in action. Our team will walk you through the full platform.</p>
+      </div>
+      <form class="demo-form" id="demoForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fullName">Full Name <span class="req">*</span></label>
+            <input type="text" id="fullName" name="fullName" placeholder="Rajesh Kumar" required autocomplete="name" />
+            <span class="field-error" id="fullNameError"></span>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number <span class="req">*</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required autocomplete="tel" />
+            <span class="field-error" id="phoneError"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address <span class="req">*</span></label>
+          <input type="email" id="email" name="email" placeholder="principal@yourschool.edu.in" required autocomplete="email" />
+          <span class="field-error" id="emailError"></span>
+        </div>
+        <div class="form-group">
+          <label for="schoolName">School Name <span class="req">*</span></label>
+          <input type="text" id="schoolName" name="schoolName" placeholder="Delhi Public School, Noida" required />
+          <span class="field-error" id="schoolNameError"></span>
+        </div>
+        <div class="form-group">
+          <label for="students">Number of Students <span class="req">*</span></label>
+          <div class="select-wrap">
+            <select id="students" name="students" required>
+              <option value="" disabled selected>Select student count</option>
+              <option value="&lt;200">Less than 200</option>
+              <option value="200-500">200 – 500 students</option>
+              <option value="500+">500+ students</option>
+            </select>
+            <svg class="select-arrow" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <span class="field-error" id="studentsError"></span>
+        </div>
+        <div class="form-group">
+          <label for="message">Message <span class="opt">(optional)</span></label>
+          <textarea id="message" name="message" rows="3" placeholder="Tell us about your school or any specific requirements…"></textarea>
+        </div>
+        <button type="submit" class="btn-submit ripple" id="submitBtn">
+          <span class="btn-text">📲 Send via WhatsApp</span>
+          <span class="btn-loading" style="display:none;">Sending…</span>
+        </button>
+        <p class="form-note">By submitting, you agree to be contacted by our team. No spam, ever.</p>
+      </form>
+    </div>
+  </div>
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="logo_smarted.png" alt="SMARTED Logo"   width="100%" height="100px" />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#ai">AI</a></li>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <!-- <li><a href="demo.html" class="nav-cta">Book Demo</a></li> -->
+
+      </ul>
+      <button class="btn-book-demo ripple open-demo" aria-label="Book a Demo">Book Demo</button>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-badge reveal">🚀 Next-Gen School ERP</div>
+        <h1 class="hero-headline reveal">Stop Managing.<br /><span class="accent-text">Start Running.</span></h1>
+        <p class="hero-sub reveal">Run your entire school on one powerful system. Attendance, fees, AI analytics, and more — unified.</p>
+        <div class="hero-buttons reveal">
+          <a href="#cta" class="btn-primary ripple">Book Demo</a>
+          <a href="#features" class="btn-secondary">Explore Features <span>→</span></a>
+        </div>
+        <div class="hero-stats reveal">
+          <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Schools</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="stat-num">1000+</span><span class="stat-label">Students</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="stat-num">99.9%</span><span class="stat-label">Uptime</span></div>
+        </div>
+      </div>
+      <div class="hero-right reveal">
+        <div class="dashboard-mockup">
+          <div class="mockup-topbar">
+            <div class="mockup-dots"><span></span><span></span><span></span></div>
+            <div class="mockup-title">SMARTED Dashboard</div>
+            <div class="mockup-user">
+              <div class="user-avatar">A</div>
+            </div>
+          </div>
+          <div class="mockup-body">
+            <div class="mockup-stat-row">
+              <div class="m-stat blue"><div class="m-stat-icon">👨‍🎓</div><div><div class="m-val">2,847</div><div class="m-lbl">Students</div></div></div>
+              <div class="m-stat green"><div class="m-stat-icon">👩‍🏫</div><div><div class="m-val">134</div><div class="m-lbl">Teachers</div></div></div>
+              <div class="m-stat orange"><div class="m-stat-icon">📋</div><div><div class="m-val">96.4%</div><div class="m-lbl">Attendance</div></div></div>
+            </div>
+            <div class="mockup-charts">
+              <div class="chart-box">
+                <div class="chart-label">Fee Collection</div>
+                <div class="bar-chart">
+                  <div class="bar" style="--h:60%"><span>Jan</span></div>
+                  <div class="bar" style="--h:80%"><span>Feb</span></div>
+                  <div class="bar" style="--h:55%"><span>Mar</span></div>
+                  <div class="bar active" style="--h:92%"><span>Apr</span></div>
+                  <div class="bar" style="--h:70%"><span>May</span></div>
+                  <div class="bar" style="--h:85%"><span>Jun</span></div>
+                </div>
+              </div>
+              <div class="chart-box">
+                <div class="chart-label">AI Insights</div>
+                <div class="donut-wrap">
+                  <div class="donut"></div>
+                  <div class="donut-center"><span>84%</span><small>Score</small></div>
+                </div>
+              </div>
+            </div>
+            <div class="mockup-alerts">
+              <div class="alert-item blue-border">📢 Parent meeting scheduled for Class 10</div>
+              <div class="alert-item green-border">✅ 47 fee payments received today</div>
+              <div class="alert-item orange-border">⚠️ 3 students absent 5+ days this month</div>
+            </div>
+          </div>
+        </div>
+        <!-- floating cards -->
+        <div class="float-card fc1">
+          <span>🤖</span>
+          <div><strong>AI Insight</strong><small>+12% attendance</small></div>
+        </div>
+        <div class="float-card fc2">
+          <span>💰</span>
+          <div><strong>₹2.4L</strong><small>Collected today</small></div>
+        </div>
+        <div class="float-card fc3">
+          <span>📊</span>
+          <div><strong>Live Reports</strong><small>Real-time sync</small></div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll to explore</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES ===== -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-tag">Everything You Need</div>
+        <h2>One Platform. Every Feature.</h2>
+        <p>From student enrollment to AI predictions — SMARTED handles it all.</p>
+      </div>
+
+      <!-- CORE SYSTEM -->
+      <div class="feature-category reveal">
+        <h3 class="cat-title"><span class="cat-icon">🏫</span> Core System</h3>
+        <div class="feature-grid">
+          <div class="feature-card" data-delay="0">
+            <div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 1 0 0 10A5 5 0 0 0 12 2zm0 12c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z"/></svg></div>
+            <h4>Student Management</h4>
+            <p>Complete student profiles, enrollment, and records.</p>
+          </div>
+          <div class="feature-card" data-delay="50">
+            <div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.34C18 2.99 16.5 1.5 14.83 1.5c-1.04 0-1.96.52-2.56 1.32L12 3.64l-.27-.82C11.12 2.02 10.2 1.5 9.17 1.5 7.5 1.5 6 2.99 6 4.66c0 .46.1.9.18 1.34H4c-1.1 0-2 .9-2 2v13c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/></svg></div>
+            <h4>Teacher Management</h4>
+            <p>Staff records, roles, schedules, and performance.</p>
+          </div>
+          <div class="feature-card" data-delay="100">
+            <div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/></svg></div>
+            <h4>Class & Section</h4>
+            <p>Organize classes, sections, and subject mapping.</p>
+          </div>
+          <div class="feature-card" data-delay="150">
+            <div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg></div>
+            <h4>Timetable Automation</h4>
+            <p>Auto-generate conflict-free timetables instantly.</p>
+          </div>
+          <div class="feature-card" data-delay="200">
+            <div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg></div>
+            <h4>Attendance System</h4>
+            <p>QR code & biometric attendance tracking.</p>
+          </div>
+          <div class="feature-card" data-delay="250">
+            <div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></div>
+            <h4>Fee Management</h4>
+            <p>Fee structures, collections, and receipts.</p>
+          </div>
+          <div class="feature-card" data-delay="300">
+            <div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div>
+            <h4>Exam & Results</h4>
+            <p>Exam scheduling, marks entry, and result generation.</p>
+          </div>
+          <div class="feature-card" data-delay="350">
+            <div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></div>
+            <h4>Report Cards</h4>
+            <p>Customizable, auto-generated academic report cards.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMMUNICATION -->
+      <div class="feature-category reveal">
+        <h3 class="cat-title"><span class="cat-icon">💬</span> Communication</h3>
+        <div class="feature-grid">
+          <div class="feature-card" data-delay="0"><div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div><h4>Parent Portal</h4><p>Dedicated portal for parents with real-time updates.</p></div>
+          <div class="feature-card" data-delay="50"><div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg></div><h4>SMS/WhatsApp</h4><p>Instant messaging to parents via SMS and WhatsApp.</p></div>
+          <div class="feature-card" data-delay="100"><div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></div><h4>Notices & Announcements</h4><p>Broadcast notices to classes, sections, or all.</p></div>
+          <div class="feature-card" data-delay="150"><div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg></div><h4>Homework Sharing</h4><p>Share assignments with students and parents easily.</p></div>
+          <div class="feature-card" data-delay="200"><div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg></div><h4>Real-time Alerts</h4><p>Instant push notifications for critical events.</p></div>
+        </div>
+      </div>
+
+      <!-- FINANCE -->
+      <div class="feature-category reveal">
+        <h3 class="cat-title"><span class="cat-icon">💼</span> Finance</h3>
+        <div class="feature-grid">
+          <div class="feature-card" data-delay="0"><div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg></div><h4>Expense Tracking</h4><p>Monitor and categorize school expenses.</p></div>
+          <div class="feature-card" data-delay="50"><div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></div><h4>Salary Management</h4><p>Automate payroll for staff and teachers.</p></div>
+          <div class="feature-card" data-delay="100"><div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></div><h4>Invoice Generation</h4><p>Auto-generate professional fee invoices.</p></div>
+          <div class="feature-card" data-delay="150"><div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg></div><h4>Online Payments</h4><p>Accept fees via UPI, cards, and net banking.</p></div>
+          <div class="feature-card" data-delay="200"><div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4zM3 21h18v2H3z"/></svg></div><h4>Financial Reports</h4><p>Comprehensive revenue and expenditure reports.</p></div>
+        </div>
+      </div>
+
+      <!-- AUTOMATION -->
+      <div class="feature-category reveal">
+        <h3 class="cat-title"><span class="cat-icon">⚡</span> Automation</h3>
+        <div class="feature-grid">
+          <div class="feature-card" data-delay="0"><div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div><h4>Auto Fee Reminders</h4><p>Automated reminders before and after due dates.</p></div>
+          <div class="feature-card" data-delay="50"><div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg></div><h4>Auto Attendance Alerts</h4><p>Notify parents instantly of absent students.</p></div>
+          <div class="feature-card" data-delay="100"><div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg></div><h4>Auto Timetable Adjust</h4><p>Dynamic rescheduling on teacher absence.</p></div>
+          <div class="feature-card" data-delay="150"><div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg></div><h4>Auto Reports</h4><p>Scheduled reports delivered to your inbox.</p></div>
+          <div class="feature-card" data-delay="200"><div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg></div><h4>Auto Holidays</h4><p>Auto-schedule holidays and update all calendars.</p></div>
+        </div>
+      </div>
+
+      <!-- AI FEATURES -->
+      <div class="feature-category reveal">
+        <h3 class="cat-title"><span class="cat-icon">🤖</span> AI Features</h3>
+        <div class="feature-grid">
+          <div class="feature-card ai-card" data-delay="0"><div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 16.5 13z"/></svg></div><h4>AI Chatbot</h4><p>Answer student and parent queries 24/7 automatically.</p><div class="ai-badge">AI</div></div>
+          <div class="feature-card ai-card" data-delay="50"><div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4zM3 21h18v2H3z"/></svg></div><h4>AI Attendance Insights</h4><p>Predict absenteeism patterns with AI analysis.</p><div class="ai-badge">AI</div></div>
+          <div class="feature-card ai-card" data-delay="100"><div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6h-6z"/></svg></div><h4>AI Performance Prediction</h4><p>Identify at-risk students before exams.</p><div class="ai-badge">AI</div></div>
+          <div class="feature-card ai-card" data-delay="150"><div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></div><h4>AI Fee Prediction</h4><p>Forecast fee defaults before they happen.</p><div class="ai-badge">AI</div></div>
+          <div class="feature-card ai-card" data-delay="200"><div class="fc-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></div><h4>AI Notice Generator</h4><p>Auto-draft notices and circulars with AI.</p><div class="ai-badge">AI</div></div>
+        </div>
+      </div>
+
+      <!-- SECURITY & ADVANCED -->
+      <div class="feature-two-col reveal">
+        <div class="feature-col">
+          <h3 class="cat-title"><span class="cat-icon">🔒</span> Security</h3>
+          <div class="feature-grid-mini">
+            <div class="feature-card-mini"><span>🔐</span><div><strong>Role-based Access</strong><p>Granular permissions per role.</p></div></div>
+            <div class="feature-card-mini"><span>🛡️</span><div><strong>Data Security</strong><p>End-to-end encryption.</p></div></div>
+            <div class="feature-card-mini"><span>💾</span><div><strong>Backup System</strong><p>Auto daily backups.</p></div></div>
+            <div class="feature-card-mini"><span>📋</span><div><strong>Activity Logs</strong><p>Full audit trails.</p></div></div>
+          </div>
+        </div>
+        <div class="feature-col">
+          <h3 class="cat-title"><span class="cat-icon">🚀</span> Advanced</h3>
+          <div class="feature-grid-mini">
+            <div class="feature-card-mini"><span>🏫</span><div><strong>Multi-school</strong><p>Manage multiple branches.</p></div></div>
+            <div class="feature-card-mini"><span>📱</span><div><strong>Mobile App</strong><p>iOS and Android support.</p></div></div>
+            <div class="feature-card-mini"><span>🔗</span><div><strong>API Integration</strong><p>Connect third-party tools.</p></div></div>
+            <div class="feature-card-mini"><span>☁️</span><div><strong>Cloud Sync</strong><p>Real-time data everywhere.</p></div></div>
+            <div class="feature-card-mini"><span>📡</span><div><strong>Offline Mode</strong><p>Works without internet.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== AI SECTION ===== -->
+  <section class="ai-section" id="ai">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-tag">Artificial Intelligence</div>
+        <h2>Smarter with AI</h2>
+        <p>SMARTED's AI engine learns from your school's data and delivers actionable intelligence.</p>
+      </div>
+      <div class="ai-cards-row">
+        <div class="ai-feature-card reveal">
+          <div class="ai-card-top">
+            <div class="ai-pulse"></div>
+            <span class="ai-icon">🤖</span>
+          </div>
+          <h3>Smart Chatbot</h3>
+          <p>Answers fee queries, exam schedules, and school info instantly — 24/7 for parents and students.</p>
+          <div class="ai-chat-demo">
+            <div class="chat-msg bot">When is the next exam? 📅</div>
+            <div class="chat-msg user">Board exam starts April 20th!</div>
+            <div class="chat-msg bot">Fee due reminder sent to 47 parents ✅</div>
+          </div>
+        </div>
+        <div class="ai-feature-card reveal">
+          <div class="ai-card-top">
+            <div class="ai-pulse orange"></div>
+            <span class="ai-icon">📈</span>
+          </div>
+          <h3>Analytics Engine</h3>
+          <p>Visual dashboards revealing attendance trends, fee collection rates, and academic performance.</p>
+          <div class="ai-graph-demo">
+            <div class="graph-bar-row">
+              <div class="g-bar" style="--w:72%"><span>Attendance</span><em>72%</em></div>
+              <div class="g-bar blue" style="--w:88%"><span>Fees</span><em>88%</em></div>
+              <div class="g-bar green" style="--w:65%"><span>Exams</span><em>65%</em></div>
+              <div class="g-bar purple" style="--w:94%"><span>Reports</span><em>94%</em></div>
+            </div>
+          </div>
+        </div>
+        <div class="ai-feature-card reveal">
+          <div class="ai-card-top">
+            <div class="ai-pulse blue"></div>
+            <span class="ai-icon">🔮</span>
+          </div>
+          <h3>Predictive Intelligence</h3>
+          <p>Forecast student performance, fee defaults, and dropout risk before they occur.</p>
+          <div class="ai-predict-demo">
+            <div class="predict-item">
+              <span class="p-label">Default Risk</span>
+              <div class="p-bar"><div class="p-fill red" style="width: 23%"></div></div>
+              <span class="p-val">23%</span>
+            </div>
+            <div class="predict-item">
+              <span class="p-label">Pass Rate</span>
+              <div class="p-bar"><div class="p-fill green" style="width: 87%"></div></div>
+              <span class="p-val">87%</span>
+            </div>
+            <div class="predict-item">
+              <span class="p-label">Dropout Risk</span>
+              <div class="p-bar"><div class="p-fill orange" style="width: 8%"></div></div>
+              <span class="p-val">8%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DASHBOARD PREVIEW ===== -->
+  <section class="dashboard-section" id="dashboard">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-tag">Live Preview</div>
+        <h2>Your School at a Glance</h2>
+        <p>A real-time command center for every school administrator.</p>
+      </div>
+      <div class="full-dashboard reveal">
+        <div class="fd-sidebar">
+          <div class="fd-logo">S</div>
+          <nav class="fd-nav">
+            <a class="fd-nav-item active">🏠 Overview</a>
+            <a class="fd-nav-item">👨‍🎓 Students</a>
+            <a class="fd-nav-item">👩‍🏫 Teachers</a>
+            <a class="fd-nav-item">📋 Attendance</a>
+            <a class="fd-nav-item">💰 Fees</a>
+            <a class="fd-nav-item">📊 Analytics</a>
+            <a class="fd-nav-item">🔔 Alerts</a>
+            <a class="fd-nav-item">⚙️ Settings</a>
+          </nav>
+        </div>
+        <div class="fd-main">
+          <div class="fd-header">
+            <div>
+              <h3>Good Morning, Admin 👋</h3>
+              <small>Monday, April 13, 2026</small>
+            </div>
+            <div class="fd-header-right">
+              <div class="fd-search">🔍 Search...</div>
+              <div class="fd-avatar">A</div>
+            </div>
+          </div>
+          <div class="fd-stats">
+            <div class="fd-stat-card s-blue"><div class="fd-stat-icon">👨‍🎓</div><div><div class="fd-stat-val">2,847</div><div class="fd-stat-lbl">Total Students</div><div class="fd-stat-change">+12 this week</div></div></div>
+            <div class="fd-stat-card s-green"><div class="fd-stat-icon">👩‍🏫</div><div><div class="fd-stat-val">134</div><div class="fd-stat-lbl">Teachers</div><div class="fd-stat-change">2 on leave</div></div></div>
+            <div class="fd-stat-card s-orange"><div class="fd-stat-icon">✅</div><div><div class="fd-stat-val">96.4%</div><div class="fd-stat-lbl">Attendance</div><div class="fd-stat-change">↑ 2.1%</div></div></div>
+            <div class="fd-stat-card s-purple"><div class="fd-stat-icon">💰</div><div><div class="fd-stat-val">₹18.4L</div><div class="fd-stat-lbl">Fee Collected</div><div class="fd-stat-change">92% of target</div></div></div>
+          </div>
+          <div class="fd-charts-row">
+            <div class="fd-chart-box">
+              <div class="fd-chart-title">Monthly Fee Collection</div>
+              <div class="fd-bar-chart">
+                <div class="fd-bar" style="--h:65%"><span>Jan</span></div>
+                <div class="fd-bar" style="--h:78%"><span>Feb</span></div>
+                <div class="fd-bar" style="--h:52%"><span>Mar</span></div>
+                <div class="fd-bar fd-bar-active" style="--h:91%"><span>Apr</span></div>
+                <div class="fd-bar" style="--h:70%"><span>May</span></div>
+                <div class="fd-bar" style="--h:83%"><span>Jun</span></div>
+              </div>
+            </div>
+            <div class="fd-chart-box">
+              <div class="fd-chart-title">Class-wise Attendance</div>
+              <div class="fd-hbar-chart">
+                <div class="fd-hbar-item"><span>Class 10</span><div class="fd-hbar"><div class="fd-hfill" style="width:97%"></div></div><em>97%</em></div>
+                <div class="fd-hbar-item"><span>Class 9</span><div class="fd-hbar"><div class="fd-hfill" style="width:94%"></div></div><em>94%</em></div>
+                <div class="fd-hbar-item"><span>Class 8</span><div class="fd-hbar"><div class="fd-hfill blue-fill" style="width:89%"></div></div><em>89%</em></div>
+                <div class="fd-hbar-item"><span>Class 7</span><div class="fd-hbar"><div class="fd-hfill orange-fill" style="width:82%"></div></div><em>82%</em></div>
+              </div>
+            </div>
+            <div class="fd-chart-box fd-recent">
+              <div class="fd-chart-title">Recent Activity</div>
+              <ul class="fd-activity">
+                <li><span class="act-dot green-dot"></span>Raj Kumar paid ₹12,500 fee</li>
+                <li><span class="act-dot blue-dot"></span>Class 10B attendance marked</li>
+                <li><span class="act-dot orange-dot"></span>3 new admissions today</li>
+                <li><span class="act-dot red-dot"></span>Priya Sharma absent (Day 3)</li>
+                <li><span class="act-dot green-dot"></span>Salary processed for March</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="how-section" id="how">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-tag">Simple Onboarding</div>
+        <h2>Up & Running in 3 Steps</h2>
+        <p>Get your school live on SMARTED in less than a day.</p>
+      </div>
+      <div class="steps-row">
+        <div class="step-card reveal">
+          <div class="step-num">01</div>
+          <div class="step-icon">🏫</div>
+          <h3>Setup Your School</h3>
+          <p>Add school details, classes, sections, and configure your academic calendar in minutes.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-card reveal">
+          <div class="step-num">02</div>
+          <div class="step-icon">⚙️</div>
+          <h3>Manage Everything</h3>
+          <p>Add students, teachers, schedule timetables, track attendance and fees — all from one place.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-card reveal">
+          <div class="step-num">03</div>
+          <div class="step-icon">📈</div>
+          <h3>Track & Grow</h3>
+          <p>Use AI insights and analytics to make data-driven decisions and improve school performance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-tag">Trusted By Schools</div>
+        <h2>What School Leaders Say</h2>
+      </div>
+      <div class="testimonials-row">
+        <div class="testimonial-card reveal">
+          <div class="t-stars">★★★★★</div>
+          <p>"SMARTED transformed how we manage 1500 students. The AI fee prediction alone saved us ₹4L in defaults."</p>
+          <div class="t-author">
+            <div class="t-avatar">R</div>
+            <div><strong>Rajesh Sharma</strong><small>Principal, Delhi Public School Mahabubabad</small></div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="t-stars">★★★★★</div>
+          <p>"The parent portal reduced parent calls by 80%. Now everyone gets real-time updates on their child and Fees Management Software is unbeatable."</p>
+          <div class="t-author">
+            <div class="t-avatar">S</div>
+            <div><strong>Shahzad Ahmad</strong><small>Administrator, St. Sarang Convent School Kaushambi</small></div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="t-stars">★★★★★</div>
+          <p>"Auto timetable generation saves our staff 2 days every semester. Absolutely worth every rupee."</p>
+          <div class="t-author">
+            <div class="t-avatar">A</div>
+            <div><strong>Anil Mehta</strong><small>Director, Mehta Group of Schools</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-section" id="cta">
+    <div class="cta-bg-shapes">
+      <div class="cta-shape s1"></div>
+      <div class="cta-shape s2"></div>
+    </div>
+    <div class="cta-inner reveal">
+      <div class="cta-tag">Ready to Transform?</div>
+      <h2>Run Your School Smarter Today</h2>
+      <p>Join 500+ schools already using SMARTED to simplify operations and unlock growth.</p>
+      <div class="cta-buttons">
+        <a  class="btn-book-demo ripple open-demo" aria-label="Book a Demo">Book a Free Demo</a>
+        <a href="#" class="btn-secondary-white">Contact Sales →</a>
+      </div>
+      <div class="cta-trust">
+        <span>✅ Free 30-day trial</span>
+        <span>✅ No credit card required</span>
+        <span>✅ Setup in 24 hours</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">
+        <img src="logo_smart.png" alt="" width="80%" height="60px">
+        </a>
+        <p>The complete school management platform built for the modern era.</p>
+        <div class="social-icons">
+          <a href="#" aria-label="Twitter" class="social-icon">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.741l7.733-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn" class="social-icon">
+            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube" class="social-icon">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="social-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Demo</a></li>
+            <li><a href="#">Changelog</a></li>
+            <li><a href="#">Roadmap</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Solutions</h4>
+          <ul>
+            <li><a href="#">Primary Schools</a></li>
+            <li><a href="#">Secondary Schools</a></li>
+            <li><a href="#">Colleges</a></li>
+            <li><a href="#">Multi-branch</a></li>
+            <li><a href="#">Coaching Institutes</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Partners</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="#">smartedsystemss@gmail.com</a></li>
+            <li><a href="#">+91 8604015058</a></li>
+            <li><a href="#">Live Chat</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SMARTED SYSTEMS All rights reserved.</span>
+      <span>Made In India</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
